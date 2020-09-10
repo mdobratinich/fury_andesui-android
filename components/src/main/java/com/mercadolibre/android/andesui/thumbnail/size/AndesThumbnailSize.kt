@@ -20,7 +20,17 @@ enum class AndesThumbnailSize {
     SIZE_80;
 
     companion object {
-        fun fromString(value: String): AndesThumbnailSize = valueOf(value.toUpperCase())
+        fun fromString(value: String): AndesThumbnailSize = sizeMap.getValue(value.toInt())
+        private val sizeMap = mapOf(
+            24 to SIZE_24,
+            32 to SIZE_32,
+            40 to SIZE_40,
+            48 to SIZE_48,
+            56 to SIZE_56,
+            64 to SIZE_64,
+            72 to SIZE_72,
+            80 to SIZE_80
+        )
     }
 
     internal val size get() = getAndesBadgeSize()
